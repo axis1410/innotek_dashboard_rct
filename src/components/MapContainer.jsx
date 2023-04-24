@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
@@ -50,6 +51,7 @@ const MapContainer = (props) => {
 		);
 		setOutsideUsers(newOutsideUsers);
 	}, [props.users]);
+
 	return (
 		<>
 			<div>
@@ -57,6 +59,7 @@ const MapContainer = (props) => {
 					<p key={user.id}>{user.id} is outside the circle</p>
 				))}
 			</div>
+
 			<Map
 				google={props.google}
 				zoom={14}
@@ -67,6 +70,9 @@ const MapContainer = (props) => {
 			>
 				{props.users.map((user) => (
 					<Marker
+						onMouseover={() => {
+							console.log(user.data.latitude);
+						}}
 						key={user.id}
 						position={{
 							lat: user.data.latitude,
@@ -74,6 +80,7 @@ const MapContainer = (props) => {
 						}}
 					/>
 				))}
+
 				{props.mapData && (
 					<Circle
 						center={center}
@@ -85,6 +92,7 @@ const MapContainer = (props) => {
 						fillOpacity={0.35}
 					/>
 				)}
+
 				{circles.map((circle) => (
 					<Circle
 						key={circle.center.latitude + circle.center.longitude}

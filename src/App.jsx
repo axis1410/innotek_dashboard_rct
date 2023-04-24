@@ -7,8 +7,9 @@ import DeleteDeployments from './components/DeleteDeployment';
 import ListUsers from './components/ListUsers';
 import GenerateCircle from './components/GenerateCircle';
 import { useState } from 'react';
+import DeleteCircle from './components/DeleteCircle';
 
-function App() {
+const App = () => {
 	const [mapData, setMapData] = useState(null);
 
 	console.log(mapData);
@@ -16,14 +17,16 @@ function App() {
 	return (
 		<>
 			<b>App.jsx</b>
+
 			<DeployForm />
 			<DeleteDeployments />
 			<GenerateCircle setMapData={setMapData} />
+			<DeleteCircle />
 			<ListUsers mapData={mapData} />
 
 			{/* <MapContainer users={users} /> */}
 		</>
 	);
-}
+};
 
 export default App;
