@@ -28,7 +28,6 @@ const MapContainer = (props) => {
 			querySnapshot.forEach((doc) => {
 				circles.push(doc.data());
 			});
-			console.log('circles:', circles);
 
 			// Set state with data about circles
 			setCircles(circles);
@@ -70,8 +69,8 @@ const MapContainer = (props) => {
 			>
 				{props.users.map((user) => (
 					<Marker
-						onMouseover={() => {
-							console.log(user.data.latitude);
+						onClick={() => {
+							console.log(`Lat: ${user.data.latitude}\nLong: ${user.data.longitude}`);
 						}}
 						key={user.id}
 						position={{

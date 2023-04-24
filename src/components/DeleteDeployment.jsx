@@ -7,7 +7,6 @@ function Dropdown() {
 	const [selectedOperation, setSelectedOperation] = useState('');
 
 	useEffect(() => {
-		console.log('Fetching operations');
 		fetchOperations();
 	}, []);
 
@@ -41,7 +40,7 @@ function Dropdown() {
 					</option>
 				))}
 			</select>
-			<button onClick={handleDelete}>Delete</button>
+			<button onClick={handleDelete}>Delete Deployment</button>
 		</>
 	);
 }

@@ -36,7 +36,6 @@ const GenerateCircle = (props) => {
 
 		try {
 			await addDoc(collection(db, 'circles'), circleData);
-			console.log('Circle added to Firebase');
 		} catch (error) {
 			console.error('Error adding circle to Firebase:', error);
 		}
@@ -49,7 +48,6 @@ const GenerateCircle = (props) => {
 				(deployment) => deployment.operationName === selectedDeployment,
 			);
 			if (deployment) {
-				console.log('deployment:', deployment);
 				props.setMapData({
 					latitude: deployment.latitude,
 					longitude: deployment.longitude,
@@ -69,7 +67,7 @@ const GenerateCircle = (props) => {
 	return (
 		<>
 			<select onChange={handleSelectChange}>
-				<option value="Select an operation to deploy"></option>
+				<option>Select an operation to deploy</option>
 				{deployments.map((deployment) => (
 					<option key={deployment.operationName} value={deployment.operationName}>
 						{deployment.operationName}

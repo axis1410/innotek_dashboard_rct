@@ -12,17 +12,19 @@ import DeleteCircle from './components/DeleteCircle';
 const App = () => {
 	const [mapData, setMapData] = useState(null);
 
-	console.log(mapData);
-
 	return (
 		<>
 			<b>App.jsx</b>
 
 			<DeployForm />
 			<DeleteDeployments />
+			<br />
 			<GenerateCircle setMapData={setMapData} />
+			<br />
 			<DeleteCircle />
+			<br />
 			<ListUsers mapData={mapData} />
+			<br />
 
 			{/* <MapContainer users={users} /> */}
 		</>

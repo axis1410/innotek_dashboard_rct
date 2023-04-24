@@ -19,9 +19,7 @@ export default function ListUsers(props) {
 		getUsers();
 	}, []);
 
-	useEffect(() => {
-		console.log(users);
-	}, [users]);
+	useEffect(() => {}, [users]);
 
 	const getUsers = () => {
 		const usersCollectionRef = collection(db, 'location');
