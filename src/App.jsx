@@ -1,20 +1,26 @@
 // import './App.css';
 // import ListUsers from './components/ListUsers';
 // import MapTest from './components/MapTest';
-import { useState } from 'react';
+
+import DeployForm from './components/DeployForm';
+import DeleteDeployments from './components/DeleteDeployment';
 import ListUsers from './components/ListUsers';
-import MapContainer from './components/MapTest';
+import GenerateCircle from './components/GenerateCircle';
+import { useState } from 'react';
 
 function App() {
-	const [users, setUsers] = useState([
-		{ id: 1, lat: 31.2510773, lng: 75.7004144 },
-		{ id: 2, lat: 17.4107401, lng: 78.3923735 },
-	]);
+	const [mapData, setMapData] = useState(null);
+
+	console.log(mapData);
 
 	return (
 		<>
 			<b>App.jsx</b>
-			<ListUsers />
+			<DeployForm />
+			<DeleteDeployments />
+			<GenerateCircle setMapData={setMapData} />
+			<ListUsers mapData={mapData} />
+
 			{/* <MapContainer users={users} /> */}
 		</>
 	);
