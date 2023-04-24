@@ -52,7 +52,7 @@ const MapContainer = (props) => {
 	}, [props.users]);
 
 	return (
-		<>
+		<div style={{width:"25rem"}}>
 			<div>
 				{outsideUsers.map((user) => (
 					<p key={user.id}>{user.id} is outside the circle</p>
@@ -66,6 +66,7 @@ const MapContainer = (props) => {
 					lat: props.users[0].data.latitude,
 					lng: props.users[0].data.longitude,
 				}}
+				style={{height: '100vh',marginTop: '13vh',width: '90em' ,position: 'absolute',left: '-32.5em'}}
 			>
 				{props.users.map((user) => (
 					<Marker
@@ -83,7 +84,7 @@ const MapContainer = (props) => {
 				{props.mapData && (
 					<Circle
 						center={center}
-						radius={1000}
+						radius={props.radius}
 						strokeColor="#0000FF"
 						strokeOpacity={0.8}
 						strokeWeight={2}
@@ -108,7 +109,7 @@ const MapContainer = (props) => {
 					/>
 				))}
 			</Map>
-		</>
+		</div>
 	);
 };
 

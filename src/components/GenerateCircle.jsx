@@ -9,6 +9,8 @@ const GenerateCircle = (props) => {
 	const [deployments, setDeployments] = useState([]);
 	const [selectedDeployment, setSelectedDeployment] = useState(null);
 	const [mapData, setMapData] = useState(null);
+	const [radius, setRadius] = useState(0);
+	const [finalRadius, setFinalRadius] = useState(1000);
 
 	useEffect(() => {
 		const getDeployments = async () => {
@@ -51,6 +53,7 @@ const GenerateCircle = (props) => {
 				props.setMapData({
 					latitude: deployment.latitude,
 					longitude: deployment.longitude,
+					radius: finalRadius,
 				});
 
 				// Add circle to Firebase
@@ -58,14 +61,19 @@ const GenerateCircle = (props) => {
 					lat: deployment.latitude,
 					lng: deployment.longitude,
 				};
-				const radius = 1000;
-				addCircleToFirebase(center, radius);
+				
+				addCircleToFirebase(center, finalRadius);
 			}
 		}
 	};
-
+    const handleRadius = () => {
+		setFinalRadius(radius);
+	}
 	return (
-		<>
+		<div className='outer'>
+			<input type='text' placeholder='Enter the radius' value={radius} onChange={(e) => setRadius(e.target.value)}/>
+			<button onClick={handleRadius}>Add radius</button>
+		<div className='outer-container' id='generatecircle'>
 			<select onChange={handleSelectChange}>
 				<option>Select an operation to deploy</option>
 				{deployments.map((deployment) => (
@@ -74,9 +82,13 @@ const GenerateCircle = (props) => {
 					</option>
 				))}
 			</select>
+			
 			<button onClick={handleButtonClick}>Create Perimeter</button>
 			{mapData && <MapContainer {...mapData} />}
-		</>
+			
+		</div>
+		
+		</div>
 	);
 };
 

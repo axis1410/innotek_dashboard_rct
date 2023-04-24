@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 // import ListUsers from './components/ListUsers';
 // import MapTest from './components/MapTest';
 
@@ -14,7 +14,7 @@ const App = () => {
 
 	return (
 		<>
-			<b>App.jsx</b>
+			{/* <b>App.jsx</b> */}
 
 			<DeployForm />
 			<DeleteDeployments />

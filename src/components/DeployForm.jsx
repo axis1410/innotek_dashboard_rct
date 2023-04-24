@@ -45,6 +45,8 @@ function DeploymentForm() {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<div className="coverform">
+				<h2>Add Deployement Details</h2>
 			<input
 				type="text"
 				value={operationName}
@@ -63,7 +65,10 @@ function DeploymentForm() {
 				onChange={handleLatitudeChange}
 				placeholder="Latitude"
 			/>
+			<br />
+			<br />
 			<button type="submit">Add Deployment</button>
+			</div>
 		</form>
 	);
 }

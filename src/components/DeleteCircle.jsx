@@ -31,7 +31,7 @@ const DeleteCircle = () => {
 	};
 
 	return (
-		<>
+		<div className='outer-container' id='delcircle'>
 			<select value={selectedCircle} onChange={(e) => setSelectedCircle(e.target.value)}>
 				<option>Select a circle to delete</option>
 				{circles.map((circle) => (
@@ -41,7 +41,7 @@ const DeleteCircle = () => {
 				))}
 			</select>
 			<button onClick={handleDelete}>Delete Circle</button>
-		</>
+		</div>
 	);
 };
 

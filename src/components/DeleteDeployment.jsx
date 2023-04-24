@@ -31,7 +31,7 @@ function Dropdown() {
 	};
 
 	return (
-		<>
+		<div className='outer-container'>
 			<select value={selectedOperation} onChange={(e) => setSelectedOperation(e.target.value)}>
 				<option value="">Select an operation</option>
 				{operations.map((operation) => (
@@ -41,7 +41,7 @@ function Dropdown() {
 				))}
 			</select>
 			<button onClick={handleDelete}>Delete Deployment</button>
-		</>
+		</div>
 	);
 }
 

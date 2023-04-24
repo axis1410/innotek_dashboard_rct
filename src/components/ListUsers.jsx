@@ -33,18 +33,23 @@ export default function ListUsers(props) {
 	};
 
 	return (
-		<div>
-			<h4>List of users</h4>
-			<ul>
-				{users.map((user) => (
-					<li key={user.id}>
-						{user.data.name}, Longitude: {user.data.longitude}, Latitude: {user.data.latitude}
-					</li>
-				))}
-			</ul>
-
-			<button onClick={() => getUsers()}>Refresh users</button>
-			<MapContainer users={users} mapData={props.mapData} />
-		</div>
+		<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">List of Users</h4>
+  </div>
+  <br />
+  <div class="card-body">
+    <ul class="user-list">
+      {users.map((user) => (
+        <li key={user.id}>
+          {user.data.name}, Longitude: {user.data.longitude}, Latitude: {user.data.latitude}
+        </li>
+      ))}
+    </ul>
+	<br />
+    <button class="btn btn-primary" onClick={() => getUsers()}>Refresh Users</button>
+    <MapContainer users={users} mapData={props.mapData} />
+  </div>
+</div>
 	);
 }
